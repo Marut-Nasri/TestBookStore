@@ -21,7 +21,7 @@ public class OrderServiceImpl implements OrderService {
 	@Autowired
 	private OrderRepository orderRepository;
 	@Autowired
-	private BookRepository bookRepository;
+	private BookService bookService;
 	
 	@Override
 	public List<Order> findAll() {
@@ -63,7 +63,7 @@ public class OrderServiceImpl implements OrderService {
 		
 		for(int i = 0;i<bookIds.length;i++) 
 		{
-			book = bookRepository.findByBookId(bookIds[i]);
+			book = bookService.findById(bookIds[i]);
 			if (book == null) {
 				throw new IllegalArgumentException("Book not found");
 			}

@@ -18,6 +18,7 @@ import org.springframework.util.Assert;
 import com.example.BookStore.Entity.StoreUserDetails;
 import com.example.BookStore.Entity.User;
 import com.example.BookStore.controller.BookRepository;
+import com.example.BookStore.controller.BookService;
 import com.example.BookStore.controller.OrderRepository;
 import com.example.BookStore.controller.OrderService;
 import com.example.BookStore.controller.UserService;
@@ -32,7 +33,7 @@ public class LoginRepositoryIntegrationTest {
 	private OrderService orderService;
 	
 	@Autowired
-	private BookRepository bookRespository;
+	private BookService bookService;
 	
 	@Test
     public void TestLoginUser() throws Exception {
@@ -70,7 +71,7 @@ public class LoginRepositoryIntegrationTest {
         
         Assert.isTrue(userLogin.getBookIds().length >= bookIds.length,"Order confirm");
         
-        var allBooks = bookRespository.findAll();
+        var allBooks = bookService.findAll();
         List<Integer> bookIdList = new ArrayList<Integer>();
         for(int i =0;i<bookIds.length;i++) {
         	bookIdList.add(bookIds[i]);
@@ -79,7 +80,7 @@ public class LoginRepositoryIntegrationTest {
         for(int i = 0;i<allBooks.size();i++) 
         {
         	for(int j = 0 ;j < bookIds.length;j++) {
-        		if (allBooks.get(i).getBookId() == bookIds[j]) 
+        		if (allBooks.get(i).getId() == bookIds[j]) 
         		{
         			price += allBooks.get(i).getPrice();
         			break;

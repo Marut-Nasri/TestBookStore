@@ -16,23 +16,24 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import com.example.BookStore.controller.BookRepository;
+import com.example.BookStore.controller.BookService;
 
 
 @SpringBootTest
 public class BookRepositoryIntegrationTest {
 	@Autowired
-	private BookRepository bookRepository;
+	private BookService bookService;
 	
 	@Test
 	public void TestRun_Book() throws Exception {
-		var allBooks = bookRepository.findAll();
+		var allBooks = bookService.findAll();
 		
 		Assert.isTrue(allBooks.size() > 0, "store must have book");
 		
 		if (allBooks.size() > 0) {
 			var book = allBooks.get(allBooks.size()/2);
 			
-			var findBook = bookRepository.findByBookId(book.getBookId());
+			var findBook = bookService.findById(book.getId());
 			
 			if (findBook != null) {
 				Assert.isTrue(book.getName().equals(findBook.getName()),"Book can find by book Id");
