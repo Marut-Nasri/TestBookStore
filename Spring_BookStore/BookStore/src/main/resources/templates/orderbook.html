@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Create Book Order</title>
+    </head>
+    <body>
+    	<h1>Create Book Order</h1>
+        <form th:action="@{/users/order}" method="post">
+            <div><label> Book Id List : <input type="text" name="bookIds"/> </label></div>
+            <div><input type="submit" value="Order"/></div>
+        </form>
+    </body>
+</html>

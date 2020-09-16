@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Register User </title>
+    </head>
+    <body>
+    	[[${error}]]
+        </p>
+        [[${error1}]]
+        </p>
+        [[${error2}]]
+        </p>        
+         [[${errorEx}]]
+        </p>  
+        <form th:action="@{/users}" method="post"  enctype="application/json" >
+            <div><label> User Name : <input type="text" name="username"/> </label></div>
+            <div><label> Password: <input type="password" name="password"/> </label></div>
+            <div><label>Date of birth: <input type="date" name="date_of_birth"/> </label></div>
+            <div><input type="submit" value="Register"/></div>
+        </form>
+    </body>
+</html>

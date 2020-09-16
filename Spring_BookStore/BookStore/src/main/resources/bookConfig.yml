@@ -1,0 +1,5 @@
+loadinfo:
+- recommendbookurl: "https://scb-test-book-publisher.herokuapp.com/books/recommendation"
+  allbookurl: "https://scb-test-book-publisher.herokuapp.com/books"
+  lastupdate: "20200901"
+  requesttimeout: 60

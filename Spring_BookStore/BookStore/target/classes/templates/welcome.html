@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Book Store Welcome</title>
+    </head>
+    <body>
+        <h1>Book Store Welcome</h1>
+        <p><a th:href="@{/books}">View Book</a></p>
+        <p><a th:href="@{/users}">View User Info</a></p>
+        <p><a th:href="@{/orderbook}">Order book</a></p>
+        <p><a th:href="@{/logout}">Logout</a></p>	
+        <form th:action="@{/users/delete}" method="post">
+            <div><input type="submit" value="Delete User"/></div>
+        </form>	
+    </body>
+</html>
